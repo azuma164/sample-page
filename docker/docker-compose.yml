@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  front:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: camera-app-frontend
+    tty: true
+    ports:
+      - 127.0.0.1:7080:7080
+    restart: always
+    volumes:
+      - ../:/root/front/
+    env_file:
+      - '../.env'
